@@ -5,7 +5,7 @@
 
 <h3><%= link_to link.title, link %><br>
 	<h6 class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></h6>
-	<div class="btn-group">
+	<div class="button">
 	<%= link_to "Visit Link", link.url, class: "btn btn-primary btn-sm" %>
 	<% if link.user == current_user %>
 	<%= link_to "Edit", edit_link_path(link), class: "btn btn-warning btn-sm" %>
