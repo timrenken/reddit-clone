@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+<div class='col-xs-1'>
+	<br><br>
+<div class='text-right'><%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-xs" do %>
+    <i class="fa fa-chevron-up"></i>
+  <% end %><br>
+	<%= @link.get_upvotes.size - @link.get_downvotes.size %>       <br>
+  <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-xs" do %>
+    <i class="fa fa-chevron-down"></i>	
+		<% end %></div>
+</div>
+<div class='col-xs-5'>
+<h3><%= link_to @link.title, @link %><br>
+	<h6 class="author">Submitted by <%= @link.user.email %></h6>
+	<div class="button">
+	<%= link_to "Visit Link", @link.url, class: "btn btn-primary btn-sm" %>
+	
+	<% if @link.user == current_user %>
+	<%= link_to "Edit", edit_link_path(@link), class: "btn btn-warning btn-sm" %>
+	<%= link_to "Delete", @link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+	<% end %>
+	</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+</h3>
+	</div>
+</div>
