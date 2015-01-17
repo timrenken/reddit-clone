@@ -20,7 +20,22 @@
 	<%= link_to "Delete", @link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
 	<% end %>
 	</div>
-
 </h3>
-	</div>
 </div>
+
+<br><br><br><br><br>
+<h3 class='comments_title'>
+	<%= @link.comments.count %> Comments
+</h3>
+
+<div id='comments'>
+	<%= render :partial => @link.comments %>
+</div>
+<%= simple_form_for [@link, Comment.new] do |f| %>
+	<div class='field'>
+		<%= f.text_area :body, class: "form-control" %>
+	</div>
+	<br>
+	<%= f.submit "Add Comment", class: "btn btn-primary" %>
+<% end %>
+	</div>
