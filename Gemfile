@@ -52,3 +52,5 @@ gem 'simple_form'
 gem 'acts_as_votable'
 
 gem 'font-awesome-rails'
+
+gem 'cancan'
