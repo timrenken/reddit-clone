@@ -15,7 +15,7 @@
 </div>
 <div class='col-xs-11'>
 <h3><%= link_to link.title, link %><br>
-	<h6 class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></h6>
+	<h6 class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></h6>
 	<div class="button">
 	<%= link_to "Visit Link", link.url, class: "btn btn-primary btn-sm" %>
 	

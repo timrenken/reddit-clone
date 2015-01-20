@@ -11,7 +11,7 @@
 </div>
 <div class='col-xs-5'>
 <h3><%= link_to @link.title, @link %><br>
-	<h6 class="author">Submitted by <%= @link.user.email %></h6>
+	<h6 class="author">Submitted by <%= @link.user.name %></h6>
 	<div class="button">
 	<%= link_to "Visit Link", @link.url, class: "btn btn-primary btn-sm" %>
 	
@@ -23,7 +23,7 @@
 </h3>
 </div>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br>
 <h3 class='comments_title'>
 	<%= @link.comments.count %> Comments
 </h3>
