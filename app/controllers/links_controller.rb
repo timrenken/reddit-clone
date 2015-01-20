@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    @links = Link.all.order(:cached_votes_score => :desc)
   end
 
   # GET /links/1
