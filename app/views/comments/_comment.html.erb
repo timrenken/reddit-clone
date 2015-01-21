@@ -1,4 +1,15 @@
 <%= div_for(comment) do %>
+<div class='col-xs-2'>
+	<div class='text-right'><%= link_to like_comment_path(comment), method: :put, class: "btn btn-default btn-xs" do %>
+    <i class="fa fa-chevron-up"></i>
+  <% end %><br>
+<%= comment.get_upvotes.size - comment.get_downvotes.size %>       <br>
+  <%= link_to dislike_comment_path(comment), method: :put, class: "btn btn-default btn-xs" do %>
+    <i class="fa fa-chevron-down"></i>	
+		<% end %>
+</div>
+</div>
+<div class='col-xs-10'>
 	<div class='comments_wrapper clearfix'>
 		<div class='pull-left'>
 			<h4><%= comment.body %></h4>
@@ -7,8 +18,10 @@
 		
 		<div class='btn-group pull-right'>
 			<% if can? :destroy, comment %>
-				<%= link_to "Destroy", comment, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-default" %>
+				<%= link_to "Delete", comment, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-default" %>
 			<% end %>
 		</div>
 	</div>
+</div>
 <% end %>
+
