@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
+	user ||= User.new
 	if user.admin?
 		
 		can :manage, :all
@@ -23,5 +23,8 @@ class Ability
 		
 		can :create, Link
 		can :create, Comment
+#	else
+		can :read, :all
+	end
   end
 end

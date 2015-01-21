@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def show
     respond_with(@comment)
+	authorize! :read, @comment
   end
 
   def new
