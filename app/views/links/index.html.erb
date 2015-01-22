@@ -18,7 +18,7 @@
 	<h6 class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></h6>
 	<div class="button">
 	<%= link_to "Visit Link", link.url, class: "btn btn-primary btn-sm" %>
-	<%= link_to "Comments", link, class: "btn btn-primary btn-sm" %>
+	<%= link_to pluralize(link.comments.count, 'Comment'), link, class: "btn btn-primary btn-sm" %>
 	<% if link.user == current_user %>
 	<%= link_to "Edit", edit_link_path(link), class: "btn btn-warning btn-sm" %>
 	<% end %>
