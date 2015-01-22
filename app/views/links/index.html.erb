@@ -5,11 +5,11 @@
 
 <div class='col-xs-1'>
 	<br><br>
-<div class='text-right'><%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-xs" do %>
+<div class='text-right'><%= link_to like_link_path(link), method: :put, class: "btn btn-success btn-xs" do %>
     <i class="fa fa-chevron-up"></i>
   <% end %><br>
 	<%= link.get_upvotes.size - link.get_downvotes.size %>       <br>
-  <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-xs" do %>
+  <%= link_to dislike_link_path(link), method: :put, class: "btn btn-danger btn-xs" do %>
     <i class="fa fa-chevron-down"></i>	
 		<% end %></div>
 </div>
