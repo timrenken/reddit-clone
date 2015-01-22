@@ -54,3 +54,5 @@ gem 'acts_as_votable'
 gem 'font-awesome-rails'
 
 gem 'cancan'
+
+gem 'friendly_id'
