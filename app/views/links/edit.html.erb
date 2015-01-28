@@ -1,6 +1,21 @@
-<h1>Editing Link</h1>
+<h2 class="text-center">Edit Link</h2>
+<%= simple_form_for(@link, html: {class: "form-signin"}) do |f| %>
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @link %> |
-<%= link_to 'Back', links_path %>
+
+    <%= f.input :title, required: false, autofocus: true, label: false, placeholder: "Title", input_html: {class: "form-control"} %>
+    <%= f.input :url, required: false, autofocus: true, label: false, placeholder: "URL", input_html: {class: "form-control"} %>
+    <%= f.submit "Submit", class: "btn btn-block btn-primary" %>
+
+
+<% end %>

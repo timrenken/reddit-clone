@@ -60,10 +60,11 @@ class LinksController < ApplicationController
       format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end
+    
   end
 
 	def authorized_user
-  @link = current_user.links.find_by(id: params[:id])
+  @link = current_user.links.find_by_slug(params[:id])
   redirect_to links_path, notice: "Not authorized to edit this link" if @link.nil?
 end
 	
@@ -87,6 +88,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title, :url, :user_id)
+      params.require(:link).permit(:title, :url, :user_ids)
     end
 end
