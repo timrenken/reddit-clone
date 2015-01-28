@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Please note, that at this time, admins are unable to delete any unwanted links.
 
-Things you may want to cover:
+Features to come:
 
-* Ruby version
+* Admins having the ability to delete any unwanted links.
 
-* System dependencies
+* First user created, automatically becomes an admin.
 
-* Configuration
+* Admin interface, allowing the ability to make another user an admin.
 
-* Database creation
+* Sub "reddits"
 
-* Database initialization
+* Votable comments
 
-* How to run the test suite
+* Tree style comments
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Feel free to email me at <tt>tim@timrenken.io</tt> for any questions or requests.
