@@ -1,19 +1,8 @@
-== README
+== Reddit Clone
 
-Please note, that at this time, admins are unable to delete any unwanted links.
+This is a reddit clone built in Rails 4.
 
-Features to come:
+This specific branch is in development, for subsites (or "subreddits") and is not completed at this time. If you would like to run this yourself, feel free to clone the master branch.
 
-* Admins having the ability to delete any unwanted links.
-
-* First user created, automatically becomes an admin.
-
-* Admin interface, allowing the ability to make another user an admin.
-
-* Sub "reddits"
-
-* Votable comments
-
-* Tree style comments
-
-Feel free to email me at <tt>tim@timrenken.io</tt> for any questions or requests.
+Thanks,
+Tim
