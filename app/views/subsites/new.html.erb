@@ -1,0 +1,9 @@
+<h2 class='text-center'>New Subsite</h2>
+<%= simple_form_for(@subsite, html: {class: "form-signin"}) do |f| %>
+
+    <%= f.input :name, required: true, autofocus: true, label: false, placeholder: "Name", input_html: {class: "form-control"} %>
+    <%= f.input :description, required: true, autofocus: true, label: false, placeholder: "Description", input_html: {class: "form-control"} %>
+    <%= f.submit "Submit", class: "btn btn-block btn-primary" %>
+
+
+<% end %>

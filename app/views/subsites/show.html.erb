@@ -1,0 +1,38 @@
+<h2 class='text-center'><%= @subsite.name %></h2>
+
+<p id="notice"><%= notice %></p>
+
+<div class='col-sm-10'>
+<% links.each do |link| %>
+
+<div class='col-xs-1'>
+	<br><br>
+<div class='text-right'><%= link_to like_link_path(link), method: :put, class: "btn btn-success btn-xs" do %>
+    <i class="fa fa-chevron-up"></i>
+  <% end %><br>
+	<%= link.get_upvotes.size - link.get_downvotes.size %>       <br>
+  <%= link_to dislike_link_path(link), method: :put, class: "btn btn-danger btn-xs" do %>
+    <i class="fa fa-chevron-down"></i>	
+		<% end %></div>
+</div>
+<div class='col-xs-11'>
+<h3><%= link_to link.title, link %><br>
+	<h6 class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></h6>
+	<div class="button">
+	<%= link_to "Visit Link", link.url, class: "btn btn-primary btn-sm" %>
+	<%= link_to pluralize(link.comments.count, 'Comment'), link, class: "btn btn-primary btn-sm" %>
+	<% if link.user == current_user %>
+	<%= link_to "Edit", edit_link_path(link), class: "btn btn-warning btn-sm" %>
+	<%= link_to "Delete", link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+    <% end %>
+	</div>
+</h3>
+</div>
+
+<% end %>
+</div>
+<div class='col-sm-2'>
+  <%= link_to 'Submit New Link', new_link_path, class: "btn btn-info btn-block" %>
+  <br>
+  <%= link_to 'Create New Subsite', new_subsite_path, class: "btn btn-info btn-block" %>
+</div>
