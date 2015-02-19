@@ -45,7 +45,7 @@ end
 
 gem 'devise'
 
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'foundation-rails'
 
 gem 'simple_form'
 
