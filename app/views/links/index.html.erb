@@ -3,30 +3,26 @@
 
 <% @links.each do |link| %>
 
-<div class='col-xs-1'>
-	<br><br>
-<div class='text-right'><%= link_to like_link_path(link), method: :put, class: "btn btn-success btn-xs" do %>
+<div class='small-1 columns'>
+<div class='text-right'><%= link_to like_link_path(link), method: :put, class: "button tiny" do %>
     <i class="fa fa-chevron-up"></i>
-  <% end %><br>
-	<%= link.get_upvotes.size - link.get_downvotes.size %>       <br>
-  <%= link_to dislike_link_path(link), method: :put, class: "btn btn-danger btn-xs" do %>
+  <% end %>
+	<%= link.get_upvotes.size - link.get_downvotes.size %>
+  <%= link_to dislike_link_path(link), method: :put, class: "button tiny" do %>
     <i class="fa fa-chevron-down"></i>	
-		<% end %></div>
+  <% end %>
+		</div>
 </div>
-<div class='col-xs-11'>
-<h3><%= link_to link.title, link %><br>
+<div class='small-11 columns'>
+  <h4><%= link_to link.title, link %></h4>
 	<h6 class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></h6>
-	<div class="button">
-	<%= link_to "Visit Link", link.url, class: "btn btn-primary btn-sm" %>
-	<%= link_to pluralize(link.comments.count, 'Comment'), link, class: "btn btn-primary btn-sm" %>
+	
+	<%= link_to "Visit Link", link.url, class: "button tiny" %>
+	<%= link_to pluralize(link.comments.count, 'Comment'), link, class: "button tiny" %>
 	<% if link.user == current_user %>
-	<%= link_to "Edit", edit_link_path(link), class: "btn btn-warning btn-sm" %>
+	<%= link_to "Edit", edit_link_path(link), class: "button tiny" %>
+	<%= link_to "Delete", link, method: :delete, data: { confirm: "Are you sure?" }, class: "button tiny" %>
     <% end %>
-  <% if can? :destroy, link %>
-	<%= link_to "Delete", link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
-    <% end %>
-	</div>
+</div>
 
-</h3>
-	</div>
 <% end %>

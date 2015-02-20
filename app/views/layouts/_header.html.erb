@@ -1,26 +1,15 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-		<p class='navbar-brand'><%= link_to "Ureedit", root_path %></p>
-    </div>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Ureedit", root_path %></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+  </ul>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<% if user_signed_in? %>
-      	<ul class="nav navbar-nav">
-    	<li><%= link_to 'Submit link', new_link_path %></li>
-		<% end %>       
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
-		    <% if user_signed_in? %>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if user_signed_in? %>
           <li></li>
         	<li><%= link_to 'Account', edit_user_registration_path %></li>
    			  <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
@@ -28,10 +17,11 @@
     		  <li><%= link_to 'Sign up', new_user_registration_path %></li>
     		  <li><%= link_to 'Log in', new_user_session_path %></li>
 		    <% end %>
-  	  </ul>
+    </ul>
 
-        
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><%= link_to 'Submit link', new_link_path %></li>
+    </ul>
+  </section>
 </nav>

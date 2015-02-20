@@ -1,10 +1,10 @@
 <%= div_for(comment) do %>
 <div class='col-xs-2'>
-	<div class='text-right'><%= link_to like_comment_path(comment), method: :put, class: "btn btn-success btn-xs" do %>
+	<div class='text-right'><%= link_to like_comment_path(comment), method: :put, class: "button tiny" do %>
     <i class="fa fa-chevron-up"></i>
   <% end %><br>
 <%= comment.get_upvotes.size - comment.get_downvotes.size %>       <br>
-  <%= link_to dislike_comment_path(comment), method: :put, class: "btn btn-danger btn-xs" do %>
+  <%= link_to dislike_comment_path(comment), method: :put, class: "button tiny" do %>
     <i class="fa fa-chevron-down"></i>	
 		<% end %>
 </div>
@@ -18,7 +18,7 @@
 		
 		<div class='btn-group pull-right'>
 			<% if can? :destroy, comment %>
-				<%= link_to "Delete", comment, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+				<%= link_to "Delete", comment, method: :delete, data: { confirm: "Are you sure?" }, class: "button tiny" %>
 			<% end %>
 		</div>
 	</div>
