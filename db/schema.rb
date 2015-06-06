@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122015631) do
+ActiveRecord::Schema.define(version: 20150130045409) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "link_id"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20150122015631) do
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
     t.string   "slug"
+    t.string   "subsite_name"
+    t.integer  "subsite_id"
   end
 
   add_index "links", ["cached_votes_down"], name: "index_links_on_cached_votes_down"
@@ -76,6 +78,16 @@ ActiveRecord::Schema.define(version: 20150122015631) do
   add_index "links", ["cached_weighted_total"], name: "index_links_on_cached_weighted_total"
   add_index "links", ["slug"], name: "index_links_on_slug", unique: true
   add_index "links", ["user_id"], name: "index_links_on_user_id"
+
+  create_table "subsites", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "subsites", ["slug"], name: "index_subsites_on_slug", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

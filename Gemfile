@@ -54,3 +54,5 @@ gem 'font-awesome-rails'
 gem 'cancan'
 
 gem 'friendly_id'
+
+gem 'rails_admin', '~> 0.6.7'
